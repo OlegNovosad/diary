@@ -13,8 +13,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: GoogleFonts.manrope().fontFamily),
-      home: OnboardingScreen()
-    );
+        theme: ThemeData(fontFamily: GoogleFonts.manrope().fontFamily),
+        home: SplashScreen());
   }
 }
