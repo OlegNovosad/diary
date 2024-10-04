@@ -1,3 +1,4 @@
+import 'package:diary/main_screen.dart';
 import 'package:diary/onboarding_screen.dart';
 import 'package:diary/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,6 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(fontFamily: GoogleFonts.manrope().fontFamily),
-        home: SplashScreen());
+        home: MainScreen());
   }
 }

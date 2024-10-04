@@ -1,3 +1,4 @@
+import 'package:diary/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -12,10 +13,14 @@ class OnboardingScreen extends StatelessWidget {
   static const titles = [
     "Diary with lock",
     "Mood graph",
+    "Search diary",
+    "Most secure"
   ];
   static const descriptions = [
     "Store your memories in a safe and secure way!",
     "We can show which part of the year kept you happy, sad or angry with cool graphs!",
+    "Effortlessly search your diary to relive a particular memory!",
+    "Save memmories with PIN, Face lock and intruder selfie"
   ];
 
   @override
@@ -71,6 +76,13 @@ class OnboardingScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8)),
                           backgroundColor: Colors.black),
                       onPressed: () {
+                        if (controller.page == steps - 1) {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (context) => const MainScreen()));
+                          return;
+                        }
+
                         controller.nextPage(
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.easeInOut);
