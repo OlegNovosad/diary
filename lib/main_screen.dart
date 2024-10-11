@@ -14,10 +14,52 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Placeholder(),
+      extendBody: true,
+      body: Container(
+        padding: const EdgeInsets.all(24),
+        color: const Color(0xFFF3F3F3),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                SvgPicture.asset('assets/images/logo.svg', height: 20),
+                const Spacer(),
+                const Icon(Icons.notifications, color: Colors.black)
+              ],
+            ),
+            const SizedBox(height: 24),
+            const Placeholder(),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+          width: 48,
+          height: 48,
+          decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(0xFF1DE15C), Color(0xFFEEFF20)]),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                    color: const Color(0xFF3544CF).withOpacity(0.25),
+                    blurRadius: 30,
+                    offset: const Offset(0, 12))
+              ]),
+          child: const Icon(
+            Icons.add,
+            color: Colors.black,
+            size: 32,
+          )),
       bottomNavigationBar: BottomAppBar(
           padding: EdgeInsets.zero,
+          shape: const CircularNotchedRectangle(),
+          notchMargin: 8,
+          clipBehavior: Clip.antiAlias,
           child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             onTap: (index) {
               setState(() {
                 _currentTab = index;
@@ -35,6 +77,15 @@ class _MainScreenState extends State<MainScreen> {
                   icon: SvgPicture.asset('assets/icons/mood.svg'),
                   activeIcon: SvgPicture.asset('assets/icons/mood_active.svg'),
                   label: "Mood"),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset('assets/icons/diary.svg'),
+                  activeIcon: SvgPicture.asset('assets/icons/diary_active.svg'),
+                  label: "Diary"),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset('assets/icons/settings.svg'),
+                  activeIcon:
+                      SvgPicture.asset('assets/icons/settings_active.svg'),
+                  label: "Settings"),
             ],
           )),
     );

@@ -15,6 +15,6 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(fontFamily: GoogleFonts.manrope().fontFamily),
-        home: MainScreen());
+        home: SplashScreen());
   }
 }
