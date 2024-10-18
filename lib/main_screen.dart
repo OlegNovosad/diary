@@ -1,3 +1,7 @@
+import 'package:diary/diary_screen.dart';
+import 'package:diary/home_screen.dart';
+import 'package:diary/mood_screen.dart';
+import 'package:diary/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,21 +19,23 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: Container(
-        padding: const EdgeInsets.all(24),
-        color: const Color(0xFFF3F3F3),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                SvgPicture.asset('assets/images/logo.svg', height: 20),
-                const Spacer(),
-                const Icon(Icons.notifications, color: Colors.black)
-              ],
-            ),
-            const SizedBox(height: 24),
-            const Placeholder(),
-          ],
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(24),
+          color: const Color(0xFFF3F3F3),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  SvgPicture.asset('assets/images/logo.svg', height: 20),
+                  const Spacer(),
+                  const Icon(Icons.notifications, color: Colors.black)
+                ],
+              ),
+              const SizedBox(height: 24),
+              _screen()
+            ],
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -89,5 +95,20 @@ class _MainScreenState extends State<MainScreen> {
             ],
           )),
     );
+  }
+
+  Widget _screen() {
+    switch (_currentTab) {
+      case 0:
+        return const HomeScreen();
+      case 1:
+        return const MoodScreen();
+      case 2:
+        return const DiaryScreen();
+      case 3:
+        return const SettingsScreen();
+      default:
+        throw UnimplementedError("$_currentTab does not exist");
+    }
   }
 }

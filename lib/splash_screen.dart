@@ -9,12 +9,11 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => OnboardingScreen())
-      );
+          MaterialPageRoute(builder: (context) => OnboardingScreen()));
     });
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(child: SvgPicture.asset('assets/images/logo.svg')));
+        backgroundColor: Colors.white,
+        body: Center(child: SvgPicture.asset('assets/images/logo.svg')));
   }
 }
