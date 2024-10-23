@@ -1,3 +1,4 @@
+import 'package:diary/button_widget.dart';
 import 'package:diary/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -68,13 +69,8 @@ class OnboardingScreen extends StatelessWidget {
                           spacing: 12,
                           dotColor: Color(0xFFE5E5E5),
                           activeDotColor: Colors.black)),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 12, horizontal: 64),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8)),
-                          backgroundColor: Colors.black),
+                  ButtonWidget(
+                      title: "Next",
                       onPressed: () {
                         if (controller.page == steps - 1) {
                           Navigator.of(context).pushReplacement(
@@ -86,12 +82,7 @@ class OnboardingScreen extends StatelessWidget {
                         controller.nextPage(
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.easeInOut);
-                      },
-                      child: const Text("Next",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold)))
+                      })
                 ],
               )
             ],

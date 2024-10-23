@@ -1,3 +1,4 @@
+import 'package:diary/add_memories_screen.dart';
 import 'package:diary/diary_screen.dart';
 import 'package:diary/home_screen.dart';
 import 'package:diary/mood_screen.dart';
@@ -22,7 +23,6 @@ class _MainScreenState extends State<MainScreen> {
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(24),
-          color: const Color(0xFFF3F3F3),
           child: Column(
             children: [
               Row(
@@ -39,26 +39,33 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-          width: 48,
-          height: 48,
-          decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFF1DE15C), Color(0xFFEEFF20)]),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                    color: const Color(0xFF3544CF).withOpacity(0.25),
-                    blurRadius: 30,
-                    offset: const Offset(0, 12))
-              ]),
-          child: const Icon(
-            Icons.add,
-            color: Colors.black,
-            size: 32,
-          )),
+      floatingActionButton: GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => AddMemoriesScreen()),
+          );
+        },
+        child: Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0xFF1DE15C), Color(0xFFEEFF20)]),
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                      color: const Color(0xFF3544CF).withOpacity(0.25),
+                      blurRadius: 30,
+                      offset: const Offset(0, 12))
+                ]),
+            child: const Icon(
+              Icons.add,
+              color: Colors.black,
+              size: 32,
+            )),
+      ),
       bottomNavigationBar: BottomAppBar(
           padding: EdgeInsets.zero,
           shape: const CircularNotchedRectangle(),

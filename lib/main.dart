@@ -1,3 +1,4 @@
+import 'package:diary/add_memories_screen.dart';
 import 'package:diary/main_screen.dart';
 import 'package:diary/onboarding_screen.dart';
 import 'package:diary/splash_screen.dart';
@@ -20,7 +21,13 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(fontFamily: GoogleFonts.manrope().fontFamily),
-        home: MainScreen());
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Color(0xFFF3F3F3),
+            ),
+            scaffoldBackgroundColor: const Color(0xFFF3F3F3),
+            fontFamily: GoogleFonts.manrope().fontFamily),
+        home: AddMemoriesScreen());
   }
 }
