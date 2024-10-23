@@ -61,7 +61,11 @@ class _AddMemoriesScreenState extends State<AddMemoriesScreen> {
                   ],
                 )),
             SizedBox(height: 16),
-            SectionWidget(child: MoodTypesWidget()),
+            SectionWidget(child: MoodTypesWidget(
+              onSelected: (type) {
+                // TODO: Add handling
+              },
+            )),
             SizedBox(height: 16),
             ButtonWidget(
               title: "Save",

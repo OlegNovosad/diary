@@ -29,7 +29,11 @@ class HowAreYouTodayWidget extends StatelessWidget {
             ),
           ),
           SizedBox(height: 24),
-          MoodTypesWidget()
+          MoodTypesWidget(
+            onSelected: (type) {
+              // TODO: Add handling
+            },
+          )
         ],
       ),
     );
