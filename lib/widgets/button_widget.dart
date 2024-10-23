@@ -8,7 +8,7 @@ class ButtonWidget extends StatelessWidget {
   });
 
   final String title;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
