@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 
 class SectionWidget extends StatelessWidget {
   final Widget child;
-  const SectionWidget({super.key, required this.child});
+  final EdgeInsets padding;
+  const SectionWidget(
+      {super.key,
+      this.padding = const EdgeInsets.all(16),
+      required this.child});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: padding,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),

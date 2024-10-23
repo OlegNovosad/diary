@@ -1,7 +1,7 @@
-import 'package:diary/add_memories_screen.dart';
-import 'package:diary/main_screen.dart';
-import 'package:diary/onboarding_screen.dart';
-import 'package:diary/splash_screen.dart';
+import 'package:diary/screens/add_memories_screen.dart';
+import 'package:diary/screens/main_screen.dart';
+import 'package:diary/screens/onboarding_screen.dart';
+import 'package:diary/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

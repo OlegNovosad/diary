@@ -1,5 +1,5 @@
-import 'package:diary/button_widget.dart';
-import 'package:diary/main_screen.dart';
+import 'package:diary/widgets/button_widget.dart';
+import 'package:diary/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

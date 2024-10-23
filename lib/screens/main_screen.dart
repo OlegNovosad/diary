@@ -1,8 +1,8 @@
-import 'package:diary/add_memories_screen.dart';
-import 'package:diary/diary_screen.dart';
-import 'package:diary/home_screen.dart';
-import 'package:diary/mood_screen.dart';
-import 'package:diary/settings_screen.dart';
+import 'package:diary/screens/add_memories_screen.dart';
+import 'package:diary/screens/diary_screen.dart';
+import 'package:diary/screens/home_screen.dart';
+import 'package:diary/screens/mood_screen.dart';
+import 'package:diary/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
