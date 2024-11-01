@@ -33,7 +33,7 @@ class _AddMemoriesScreenState extends State<AddMemoriesScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add memories"),
+        title: const Text("Add memories"),
         centerTitle: true,
       ),
       body: Padding(
@@ -48,7 +48,7 @@ class _AddMemoriesScreenState extends State<AddMemoriesScreen> {
                     TextField(
                       controller: titleController,
                       cursorColor: Colors.black,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         contentPadding: EdgeInsets.symmetric(
                           vertical: 16,
                           horizontal: 24,
@@ -61,12 +61,12 @@ class _AddMemoriesScreenState extends State<AddMemoriesScreen> {
                         setState(() {});
                       },
                     ),
-                    Divider(),
+                    const Divider(),
                     TextField(
                       controller: messageController,
                       cursorColor: Colors.black,
                       maxLines: 5,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         contentPadding: EdgeInsets.symmetric(
                           vertical: 16,
                           horizontal: 24,
@@ -81,7 +81,7 @@ class _AddMemoriesScreenState extends State<AddMemoriesScreen> {
                     ),
                   ],
                 )),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SectionWidget(child: MoodTypesWidget(
               onSelected: (type) {
                 setState(() {
@@ -89,7 +89,7 @@ class _AddMemoriesScreenState extends State<AddMemoriesScreen> {
                 });
               },
             )),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ButtonWidget(
               title: "Save",
               onPressed: enabled

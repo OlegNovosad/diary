@@ -12,15 +12,15 @@ class HowAreYouTodayWidget extends StatelessWidget {
     return SectionWidget(
       child: Column(
         children: [
-          Text(
+          const Text(
             "Hello, Oleg Novosad",
             style: TextStyle(
               fontSize: 18,
               color: Color(0xFF5F5F5F),
             ),
           ),
-          SizedBox(height: 8),
-          Text(
+          const SizedBox(height: 8),
+          const Text(
             "How are you today?",
             style: TextStyle(
               fontSize: 28,
@@ -28,7 +28,7 @@ class HowAreYouTodayWidget extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           MoodTypesWidget(
             onSelected: (type) {
               // TODO: Add handling

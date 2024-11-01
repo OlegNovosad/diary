@@ -20,7 +20,7 @@ class ButtonWidget extends StatelessWidget {
             backgroundColor: Colors.black),
         onPressed: onPressed,
         child: Text(title,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.bold)));

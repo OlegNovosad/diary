@@ -32,7 +32,7 @@ class MainApp extends StatelessWidget {
               ),
               scaffoldBackgroundColor: const Color(0xFFF3F3F3),
               fontFamily: GoogleFonts.manrope().fontFamily),
-          home: MainScreen()),
+          home: const MainScreen()),
     );
   }
 }

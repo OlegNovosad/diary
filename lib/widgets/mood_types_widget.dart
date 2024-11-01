@@ -1,7 +1,6 @@
 import 'package:diary/mood_type.dart';
 import 'package:diary/widgets/mood_type_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class MoodTypesWidget extends StatefulWidget {
   const MoodTypesWidget({

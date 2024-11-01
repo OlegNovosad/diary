@@ -23,8 +23,8 @@ class MoodTypeWidget extends StatelessWidget {
       child: Container(
           height: 68,
           width: 48,
-          margin: EdgeInsets.symmetric(horizontal: 2),
-          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+          margin: const EdgeInsets.symmetric(horizontal: 2),
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
           decoration: BoxDecoration(
             color: moodType.color,
             border: Border.all(color: Colors.black, width: selected ? 4 : 2),

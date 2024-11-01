@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
       floatingActionButton: GestureDetector(
         onTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => AddMemoriesScreen()),
+            MaterialPageRoute(builder: (_) => const AddMemoriesScreen()),
           );
         },
         child: Container(

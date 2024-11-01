@@ -16,37 +16,47 @@ class MemoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SectionWidget(
+        padding: const EdgeInsets.only(left: 16, bottom: 16),
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SvgPicture.asset(memory.moodType.image),
-        SizedBox(height: 16),
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
-          decoration: BoxDecoration(
-            color: memory.moodType.color,
-            borderRadius: BorderRadius.circular(4),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.timer),
-              SizedBox(width: 4),
-              Text(formatter.format(memory.date)),
-            ],
-          ),
-        ),
-        SizedBox(height: 16),
-        Text(
-          memory.title,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(height: 16),
-        Text(memory.message)
-      ],
-    ));
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SvgPicture.asset(memory.moodType.image),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.more_vert),
+                )
+              ],
+            ),
+            const SizedBox(height: 8),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+              decoration: BoxDecoration(
+                color: memory.moodType.color,
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.timer),
+                  const SizedBox(width: 4),
+                  Text(formatter.format(memory.date)),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              memory.title,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(memory.message)
+          ],
+        ));
   }
 }
