@@ -1,44 +1,35 @@
 import 'package:diary/memory.dart';
-import 'package:diary/mood_type.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+enum MemoryAction {
+  edit("Edit", Icons.edit),
+  share("Share", Icons.share),
+  delete("Delete", Icons.delete_forever);
+
+  final String title;
+  final IconData icon;
+
+  const MemoryAction(this.title, this.icon);
+}
 
 class MemoryProvider extends ChangeNotifier {
-  final List<Memory> _memories = [
-    Memory(
-        title: "Сьогодні я класно поснідав!",
-        message: "Сосиски, яйця, канапки. І чай!",
-        date: DateTime.now(),
-        moodType: MoodType.happy),
-    Memory(
-        title: "Почав дивитись новий серіал",
-        message: "Називається The Lincoln Lawyer, мені подобається",
-        date: DateTime.now().subtract(const Duration(hours: 12)),
-        moodType: MoodType.good),
-  ];
-  List<Memory> get memories => _memories;
+  final Memory memory;
 
-  bool _onboardingFinished = false;
-  bool get onboardingFinished => _onboardingFinished;
+  MemoryProvider(this.memory);
 
-  void setOnboardingFinished() {
-    _onboardingFinished = true;
-    notifyListeners();
-  }
+  static final formatter = DateFormat("d MMM yy");
 
-  void add(Memory value) {
-    _memories.add(value);
-    notifyListeners();
-  }
+  String get formattedDate => formatter.format(memory.date);
 
-  Memory recent() {
-    _memories.sort((a, b) {
-      if (a.date.isAfter(b.date)) {
-        return 1;
-      } else {
-        return -1;
-      }
-    });
-
-    return _memories.last;
+  void onActionSelected(MemoryAction value) {
+    switch (value) {
+      case MemoryAction.edit:
+      // TODO: Show edit screen
+      case MemoryAction.share:
+      // TODO: Show share menu
+      case MemoryAction.delete:
+      // TODO: Show delete confirmation dialog
+    }
   }
 }

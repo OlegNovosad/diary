@@ -1,5 +1,5 @@
 import 'package:diary/memory.dart';
-import 'package:diary/memory_provider.dart';
+import 'package:diary/memories_provider.dart';
 import 'package:diary/mood_type.dart';
 import 'package:diary/widgets/button_widget.dart';
 import 'package:diary/widgets/mood_types_widget.dart';
@@ -21,7 +21,7 @@ class _AddMemoriesScreenState extends State<AddMemoriesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.read<MemoryProvider>();
+    final provider = context.read<MemoriesProvider>();
 
     var enabled = false;
 

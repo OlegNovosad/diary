@@ -1,21 +1,18 @@
-import 'package:diary/memory.dart';
+import 'package:diary/memory_provider.dart';
 import 'package:diary/screens/memory_details_screen.dart';
 import 'package:diary/widgets/section_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class MemoryWidget extends StatelessWidget {
-  const MemoryWidget({
-    super.key,
-    required this.memory,
-  });
-
-  final Memory memory;
-  static final formatter = DateFormat("d MMM yy");
+  const MemoryWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = context.watch<MemoryProvider>();
+    final memory = provider.memory;
+
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
@@ -31,64 +28,28 @@ class MemoryWidget extends StatelessWidget {
                 children: [
                   SvgPicture.asset(memory.moodType.image),
                   PopupMenuButton(
-                      onSelected: (value) {
-                        if (value == "edit") {
-                          // TODO: Show edit screen
-                        } else if (value == "share") {
-                          // TODO: Show share menu
-                        } else if (value == "delete") {
-                          // TODO: Show delete confirmation dialog
-                        }
-                      },
+                      onSelected: provider.onActionSelected,
                       menuPadding: EdgeInsets.zero,
                       color: Colors.white,
                       icon: const Icon(Icons.more_vert),
                       itemBuilder: (context) => [
-                            const PopupMenuItem(
-                                value: "edit",
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.edit),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      "Edit",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
+                            ...MemoryAction.values.map((action) {
+                              return PopupMenuItem(
+                                  value: action,
+                                  child: Row(
+                                    children: [
+                                      Icon(action.icon),
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        action.title,
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                )),
-                            const PopupMenuItem(
-                                value: "share",
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.share),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      "Share",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                            const PopupMenuItem(
-                                value: "delete",
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.delete_forever),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      "Delete",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                )),
+                                    ],
+                                  ));
+                            })
                           ])
                 ],
               ),
@@ -104,7 +65,7 @@ class MemoryWidget extends StatelessWidget {
                   children: [
                     const Icon(Icons.timer),
                     const SizedBox(width: 4),
-                    Text(formatter.format(memory.date)),
+                    Text(provider.formattedDate),
                   ],
                 ),
               ),

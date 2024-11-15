@@ -1,3 +1,4 @@
+import 'package:diary/memories_provider.dart';
 import 'package:diary/memory_provider.dart';
 import 'package:diary/widgets/memory_widget.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ class AllMemoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<MemoryProvider>();
+    final provider = context.watch<MemoriesProvider>();
     final memories = provider.memories;
 
     return Scaffold(
@@ -25,7 +26,9 @@ class AllMemoriesScreen extends StatelessWidget {
                 right: 16,
                 bottom: 16,
               ),
-              child: MemoryWidget(memory: memories[index]),
+              child: ChangeNotifierProvider(
+                  create: (_) => MemoryProvider(memories[index]),
+                  child: const MemoryWidget()),
             );
           }),
     );

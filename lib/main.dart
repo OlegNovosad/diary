@@ -1,4 +1,4 @@
-import 'package:diary/memory_provider.dart';
+import 'package:diary/memories_provider.dart';
 import 'package:diary/screens/add_memories_screen.dart';
 import 'package:diary/screens/main_screen.dart';
 import 'package:diary/screens/onboarding_screen.dart';
@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => MemoryProvider(),
+      create: (_) => MemoriesProvider(),
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(

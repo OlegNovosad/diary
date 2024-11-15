@@ -1,3 +1,4 @@
+import 'package:diary/memories_provider.dart';
 import 'package:diary/memory_provider.dart';
 import 'package:diary/screens/all_memories_screen.dart';
 import 'package:diary/widgets/how_are_you_today_widget.dart';
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<MemoryProvider>();
+    final provider = context.watch<MemoriesProvider>();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -48,7 +49,9 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          MemoryWidget(memory: provider.recent())
+          ChangeNotifierProvider(
+            create: (_) => MemoryProvider(provider.recent()),
+            child: const MemoryWidget())
         ]
       ],
     );
